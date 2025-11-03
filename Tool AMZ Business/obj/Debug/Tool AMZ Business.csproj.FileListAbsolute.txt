@@ -108,3 +108,58 @@ D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ.D213C2E9.Up2Date
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.exe
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.pdb
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\linux\selenium-manager
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\macos\selenium-manager
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\windows\selenium-manager.exe
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.exe.config
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.exe
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.pdb
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\INIFileParser.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Otp.NET.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\PuppeteerSharp.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Buffers.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Memory.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Text.Encodings.Web.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Text.Json.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.ValueTuple.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\WebDriver.dll
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\INIFileParser.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\PuppeteerSharp.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Buffers.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Memory.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Text.Encodings.Web.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Text.Json.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.ValueTuple.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\WebDriver.xml
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.AssemblyReference.cache
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto_Tool_AMZ_with_GPM.Form1.resources
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto_Tool_AMZ_with_GPM.Properties.Resources.resources
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.GenerateResource.cache
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ.D213C2E9.Up2Date
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.exe
+C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.pdb

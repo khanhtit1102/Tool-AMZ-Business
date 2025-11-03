@@ -130,6 +130,8 @@ namespace Auto_Tool_AMZ_with_GPM
                 txtAMZAccount.ReadOnly = false;
                 txtListCard.ReadOnly = false;
                 txtGPMAPI.ReadOnly = false;
+                txtURL.ReadOnly = false;
+                txtImageDie.ReadOnly = false;
                 return;
             }
 
@@ -144,6 +146,8 @@ namespace Auto_Tool_AMZ_with_GPM
             txtAMZAccount.ReadOnly = true;
             txtListCard.ReadOnly = true;
             txtGPMAPI.ReadOnly = true;
+            txtURL.ReadOnly = true;
+            txtImageDie.ReadOnly = true;
             btnRun.Text = "STOP";
             btnRun.BackColor = Color.Red;
 
@@ -152,7 +156,7 @@ namespace Auto_Tool_AMZ_with_GPM
 
         public bool IsConnectedToInternet()
         {
-            string host = "1.1.1.1";  
+            string host = "1.1.1.1";
             bool result = false;
             Ping p = new Ping();
             try
@@ -179,7 +183,7 @@ namespace Auto_Tool_AMZ_with_GPM
                 try
                 {
                     // if checkAllRequirements(), going to catch
-                    if(!checkAllRequirements())
+                    if (!checkAllRequirements())
                     {
                         throw new Exception();
                     }
@@ -210,11 +214,23 @@ namespace Auto_Tool_AMZ_with_GPM
                     txtAMZAccount.ReadOnly = false;
                     txtListCard.ReadOnly = false;
                     txtGPMAPI.ReadOnly = false;
+                    txtURL.ReadOnly = false;
+                    txtImageDie.ReadOnly = false;
                     MessageBox.Show("Dữ liệu sai định dạng hoặc đã hết.\nHãy kiểm tra lại dữ liệu input!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     return;
                 }
                 await Task.WhenAll(tasks);
             }
+        }
+
+        private string GenerateRandomBusinessName()
+        {
+            string[] businessNames = {"Tech Solutions Inc.", "Blue Ocean Ventures", "Pinnacle Consulting Group", "GreenLeaf Marketing", "Silverline Logistics","Urban Edge Realty", "NextGen Innovations", "Summit Financial Partners", "BrightPath Education", "Redwood Construction","Sunrise Media Group", "Evergreen Landscaping", "Velocity IT Services", "Crystal Clear Cleaning", "Peak Performance Fitness","Golden Gate Advisors", "Skyline Travel Agency", "Maplewood Publishing", "Quantum Engineering", "Starlight Events","Crestview Healthcare", "Lighthouse Insurance", "Aspire Digital Agency", "Ironclad Security", "Harmony Wellness Center","Blue Ridge Apparel", "Momentum Motors", "Clever Fox Design", "NorthStar Consulting", "FreshStart Foods","Elite Staffing Solutions", "Silver Oak Winery", "Urban Roots Cafe", "Bright Future Tutoring", "Precision Auto Repair","Sunset Photography", "Everest Outdoor Gear", "GreenTech Energy", "Crystal Waters Spa", "Summit Legal Group","Red Maple Bistro", "Blue Sky Aviation", "Peak Performance Coaching", "Golden State Marketing", "Skyline Construction","Maple Leaf Accounting", "Quantum Data Systems", "Starlight Entertainment", "Crestview Dental", "Lighthouse Realty","Aspire Fitness Studio", "Ironclad Manufacturing", "Harmony Music School", "Blue Ridge Consulting", "Momentum Marketing","Clever Fox Media", "NorthStar Financial", "FreshStart Cleaning", "Elite Event Planning", "Silver Oak Consulting","Urban Roots Market", "Bright Future Learning", "Precision Engineering", "Sunset Travel", "Everest Consulting","GreenTech Solutions", "Crystal Waters Cleaning", "Summit Accounting", "Red Maple Consulting", "Blue Sky Media","Peak Performance Training", "Golden State Realty", "Skyline Marketing", "Maple Leaf Consulting", "Quantum Innovations","Starlight Productions", "Crestview Consulting", "Lighthouse Marketing", "Aspire Consulting", "Ironclad Logistics","Harmony Consulting", "Blue Ridge Marketing", "Momentum Consulting", "Clever Fox Consulting", "NorthStar Marketing","FreshStart Consulting", "Elite Consulting Group", "Silver Oak Marketing", "Urban Roots Consulting", "Bright Future Consulting","Precision Consulting", "Sunset Consulting", "Everest Marketing", "GreenTech Consulting", "Crystal Waters Consulting","Summit Consulting", "Red Maple Marketing", "Blue Sky Consulting", "Peak Performance Consulting", "Golden State Consulting","Skyline Consulting", "Maple Leaf Marketing", "Quantum Consulting", "Starlight Consulting", "Crestview Marketing","Lighthouse Consulting", "Aspire Marketing", "Ironclad Consulting", "Harmony Marketing", "Blue Ridge Consulting Group","Momentum Marketing Group", "Clever Fox Marketing", "NorthStar Consulting Group", "FreshStart Marketing", "Elite Marketing Group","Silver Oak Consulting Group", "Urban Roots Marketing", "Bright Future Marketing", "Precision Marketing", "Sunset Marketing","Everest Consulting Group", "GreenTech Marketing", "Crystal Waters Marketing", "Summit Marketing", "Red Maple Consulting Group","Blue Sky Marketing", "Peak Performance Marketing", "Golden State Marketing Group", "Skyline Marketing Group", "Maple Leaf Consulting Group","Quantum Marketing", "Starlight Marketing", "Crestview Consulting Group", "Lighthouse Marketing Group", "Aspire Consulting Group","Ironclad Marketing", "Harmony Consulting Group", "Blue Ridge Marketing Group", "Momentum Consulting Group", "Clever Fox Consulting Group","NorthStar Marketing Group", "FreshStart Consulting Group", "Elite Consulting", "Silver Oak Marketing Group", "Urban Roots Consulting Group","Bright Future Consulting Group", "Precision Consulting Group", "Sunset Consulting Group", "Everest Marketing Group", "GreenTech Consulting Group","Crystal Waters Consulting Group", "Summit Consulting Group", "Red Maple Marketing Group", "Blue Sky Consulting Group", "Peak Performance Consulting Group","Golden State Consulting Group", "Skyline Consulting Group", "Maple Leaf Marketing Group", "Quantum Consulting Group", "Starlight Consulting Group","Crestview Marketing Group", "Lighthouse Consulting Group", "Aspire Marketing Group", "Ironclad Consulting Group", "Harmony Marketing Group","Blue Ridge Consulting", "Momentum Consulting", "Clever Fox Consulting", "NorthStar Consulting", "FreshStart Consulting", "Elite Consulting","Silver Oak Consulting", "Urban Roots Consulting", "Bright Future Consulting", "Precision Consulting", "Sunset Consulting", "Everest Consulting","GreenTech Consulting", "Crystal Waters Consulting", "Summit Consulting", "Red Maple Consulting", "Blue Sky Consulting", "Peak Performance Consulting","Golden State Consulting", "Skyline Consulting", "Maple Leaf Consulting", "Quantum Consulting", "Starlight Consulting", "Crestview Consulting","Lighthouse Consulting", "Aspire Consulting", "Ironclad Consulting", "Harmony Consulting", "Blue Ridge Consulting Group", "Momentum Consulting Group","Clever Fox Consulting Group", "NorthStar Consulting Group", "FreshStart Consulting Group", "Elite Consulting Group", "Silver Oak Consulting Group","Urban Roots Consulting Group", "Bright Future Consulting Group", "Precision Consulting Group", "Sunset Consulting Group", "Everest Consulting Group","GreenTech Consulting Group", "Crystal Waters Consulting Group", "Summit Consulting Group", "Red Maple Consulting Group", "Blue Sky Consulting Group","Peak Performance Consulting Group", "Golden State Consulting Group", "Skyline Consulting Group", "Maple Leaf Consulting Group", "Quantum Consulting Group"
+            };
+
+            Random random = new Random();
+            int index = random.Next(businessNames.Length);
+            return businessNames[index];
         }
 
         private string GenerateRandomUSFullName()
@@ -301,7 +317,7 @@ namespace Auto_Tool_AMZ_with_GPM
             {
                 try
                 {
-                    string[] arrOS = { 
+                    string[] arrOS = {
                         "Windows 11",
                         "Windows 10",
                         "Windows 8.1",
@@ -352,6 +368,8 @@ namespace Auto_Tool_AMZ_with_GPM
                     txtAMZAccount.ReadOnly = false;
                     txtListCard.ReadOnly = false;
                     txtGPMAPI.ReadOnly = false;
+                    txtURL.ReadOnly = false;
+                    txtImageDie.ReadOnly = false;
                     MessageBox.Show("Không thể tạo Profile.\nHãy mở GPM-Login lên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
@@ -573,7 +591,8 @@ namespace Auto_Tool_AMZ_with_GPM
                     Timeout = 60000
                 };
 
-                try {
+                try
+                {
                     await NavigateWithRetry(page, "https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Famazon.com%2Fbusiness%2Fregister%2Faccount-setup%2Fconvert%3Fabreg_signature%3DA2v2Mmcr4DCN1srbagmSG4KWWZIX1vRa1SMiRgJWrQ0%253D%26abreg_entryRefTag%3Db2b_mcs_header_primarycta%26abreg_ingressFlow%3DNONE%26abreg_client%3Dbiss%26ref_%3Dab_reg_notag_bl_cv_ab_reg_dsk%26alreadyVisitedAuthPortal%3D1%26abreg_layoutOverride%3DSTANDALONE&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=amzn_ab_reg_web_us&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&language=en_US&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&pageId=ab_registration_default_desktop&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&ref_=ab_reg_notag_bl_ap-sn_ab_reg_dsk&openid.pape.preferred_auth_policies=Singlefactor&switch_account=signin&disableLoginPrepopulate=1", navigationOptions);
                     await Task.Delay(2000);
                 }
@@ -585,34 +604,49 @@ namespace Auto_Tool_AMZ_with_GPM
                     status += " - Internet Error";
                 }
 
-                await PerformActionWithWait(page, "#Primary\\.REGISTRATION_START_CREATE_ACCOUNT\\.create_shuma_account", async () => await page.ClickAsync("#Primary\\.REGISTRATION_START_CREATE_ACCOUNT\\.create_shuma_account"));
 
-                await PerformActionWithWait(page, "body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a", async () => await page.ClickAsync("body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a"));
+                //await PerformActionWithWait(page, "body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a", async () => await page.ClickAsync("body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a"));
 
                 if (isContinue)
                 {
                     // Login
                     await PerformActionWithWait(page, "input#ap_email", async () => await page.TypeAsync("input#ap_email", email), true);
-                    await PerformActionWithWait(page, "input#continue", async () => await page.ClickAsync("input#continue"));
                     await PerformActionWithWait(page, "input#ap_password", async () => await page.TypeAsync("input#ap_password", password), true);
                     await PerformActionWithWait(page, "input#signInSubmit", async () => await page.ClickAsync("input#signInSubmit"));
                 }
 
                 if (isContinue)
-                    await PerformActionWithWait(page, "h1#aacb-captcha-header", async () =>
+                    await PerformActionWithWait(page, "h4.a-alert-heading", async () =>
                     {
-                        var alertHeading = await page.QuerySelectorAsync("h1#aacb-captcha-header");
+                        var alertHeading = await page.QuerySelectorAsync("h4.a-alert-heading");
                         var alertHeadingContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", alertHeading);
                         if (alertHeadingContent.Length != 0)
                         {
-                            addItemToListView(email, email, "DIE");
-                            _totalAccDie++;
-                            isContinue = false;
-                            status += " - " + alertHeadingContent;
+                            if (alertHeadingContent.Contains("problem"))
+                            {
+                                addItemToListView(email, email, "DIE - PWD");
+                                _totalAccDie++;
+                                isContinue = false;
+                                status += " - WRONG PASSWORD";
+                            }
                         }
                     }, false, 1500);
 
-                
+                //if (isContinue)
+                //    await PerformActionWithWait(page, "h1#aacb-captcha-header", async () =>
+                //    {
+                //        var alertHeading = await page.QuerySelectorAsync("h1#aacb-captcha-header");
+                //        var alertHeadingContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", alertHeading);
+                //        if (alertHeadingContent.Length != 0)
+                //        {
+                //            addItemToListView(email, email, "DIE");
+                //            _totalAccDie++;
+                //            isContinue = false;
+                //            status += " - " + alertHeadingContent;
+                //        }
+                //    }, false, 1500);
+
+
 
                 if (isContinue)
                     // Wait for 2FA input field to appear
@@ -624,6 +658,7 @@ namespace Auto_Tool_AMZ_with_GPM
                         await page.ClickAsync("input#auth-signin-button");
                     });
                 if (isContinue)
+                {
                     await PerformActionWithWait(page, "h4.a-alert-heading", async () =>
                     {
                         var alertHeading = await page.QuerySelectorAsync("h4.a-alert-heading");
@@ -636,13 +671,6 @@ namespace Auto_Tool_AMZ_with_GPM
                                 _totalAccDie++;
                                 isContinue = false;
                                 status += " - WRONG PASSWORD";
-                            }
-                            if (alertHeadingContent.Contains("Cookies"))
-                            {
-                                addItemToListView(email, email, "DIE");
-                                _totalAccDie++;
-                                isContinue = false;
-                                status += " - CAPTCHA";
                             }
                             if (alertHeadingContent.Contains("locked"))
                             {
@@ -667,16 +695,133 @@ namespace Auto_Tool_AMZ_with_GPM
                             }
                         }
                     }, false, 1500);
+                }
 
-                // Add address to account
-                if (isContinue && cbAddAddress.Checked)
+                if (isContinue)
                 {
-                    string randomNumber = GenerateRandomUSPhoneNumber();
-                    string randomAddress = GenerateRandomUSAddress();
-                    string randomFullname = GenerateRandomUSFullName();
                     try
                     {
-                        await NavigateWithRetry(page, "https://www.amazon.com/a/addresses/add?ref=ya_address_book_add_button", navigationOptions);
+                        await PerformActionWithWait(page, "text=Which account do you want to use?", async () =>
+                        {
+                            await page.ClickAsync("a[data-name='switch_account_request']:last-of-type");
+
+                            await PerformActionWithWait(page, "#Primary\\.REGISTRATION_START_MANAGE_REGISTRATION\\.redirect", async () => await page.ClickAsync("#Primary\\.REGISTRATION_START_MANAGE_REGISTRATION\\.redirect"));
+
+                            await PerformActionWithWait(page, "button#redirectButton", async () => await page.ClickAsync("button#redirectButton"));
+
+                        }, false, 5000);
+
+                        await PerformActionWithWait(page, "button#Primary\\.REGISTRATION_START_CREATE_ACCOUNT\\.create_shuma_account", async () => await page.ClickAsync("button#Primary\\.REGISTRATION_START_CREATE_ACCOUNT\\.create_shuma_account"), false, 5000);
+
+
+                        await PerformActionWithWait(page, "#Primary\\.REGISTRATION_START_COMPLETE_REGISTRATION\\.redirect", async () => await page.ClickAsync("#Primary\\.REGISTRATION_START_COMPLETE_REGISTRATION\\.redirect"), false, 5000);
+
+
+                        // Nếu trang có text "Enter your business details", thì điền thông tin business profile
+                        await PerformActionWithWait(page, "text=Enter your business details", async () =>
+                        {
+                            // Điền thông tin business profile ở đây
+                            string randomNumber = GenerateRandomUSPhoneNumber();
+                            string randomAddress = GenerateRandomUSAddress();
+                            string randomFullname = GenerateRandomUSFullName();
+                            string randomBusinessName = GenerateRandomBusinessName();
+
+                            await PerformActionWithWait(page, "input#voice-field-id", async () =>
+                            {
+                                var input = await page.QuerySelectorAsync("input#voice-field-id");
+                                if (input != null)
+                                {
+                                    await input.FocusAsync();
+                                    await page.Keyboard.DownAsync("Control");
+                                    await page.Keyboard.PressAsync("A");
+                                    await page.Keyboard.UpAsync("Control");
+                                    await page.Keyboard.PressAsync("Backspace");
+                                }
+                            }, false);
+
+                            await PerformActionWithWait(page, "input#voice-field-id", async () => await page.TypeAsync("input#voice-field-id", randomNumber), true);
+
+                            await PerformActionWithWait(page, "input#businessName-field-id", async () =>
+                            {
+                                var input = await page.QuerySelectorAsync("input#businessName-field-id");
+                                if (input != null)
+                                {
+                                    await input.FocusAsync();
+                                    await page.Keyboard.DownAsync("Control");
+                                    await page.Keyboard.PressAsync("A");
+                                    await page.Keyboard.UpAsync("Control");
+                                    await page.Keyboard.PressAsync("Backspace");
+                                }
+                            }, false);
+
+                            await PerformActionWithWait(page, "input#businessName-field-id", async () => await page.TypeAsync("input#businessName-field-id", randomBusinessName), true);
+
+                            await PerformActionWithWait(page, "input[name='businessType'][value='OTHER']", async () => await page.ClickAsync("input[name='businessType'][value='OTHER']"));
+
+                            await PerformActionWithWait(page, "#businessInfoFormId > div.b-mv-small > div > span:nth-child(2) > button", async () => await page.ClickAsync("#businessInfoFormId > div.b-mv-small > div > span:nth-child(2) > button"));
+
+                            try
+                            {
+                                await PerformActionWithWait(page, "a.b-clickable.b-text-carbon.b-text-truncate.b-ph-small", async () => await page.ClickAsync("a.b-clickable.b-text-carbon.b-text-truncate.b-ph-small"));
+
+                                await Task.Delay(2000);
+
+                                await PerformActionWithWait(page, "button#redirectButton", async () => await page.ClickAsync("button#redirectButton"));
+                            }
+                            catch (Exception ex)
+                            {
+                                addItemToListView(email, email, "DIE - Unable to add address");
+                                _totalAccDie++;
+                                isContinue = false;
+                                status += " - Unable to add address";
+                            }
+
+                            await Task.Delay(3000);
+
+
+                            if (isContinue)
+                            {
+                                await PerformActionWithWait(page, "button#business-info-page-submit", async () => await page.ClickAsync("button#business-info-page-submit"));
+                            }
+                            await Task.Delay(3000);
+
+                            if (isContinue)
+                            {
+                                var accountListsElement = await page.QuerySelectorAsync("a#nav-link-accountList");
+                                if (accountListsElement != null)
+                                {
+                                    var accountListsText = await page.EvaluateFunctionAsync<string>("el => el.textContent", accountListsElement);
+                                    if (!string.IsNullOrEmpty(accountListsText) && accountListsText.Contains("Account & Lists"))
+                                    {
+                                        await PerformActionWithWait(page, "a#nav-item-switch-account", async () => await page.ClickAsync("a#nav-item-switch-account"));
+                                        await page.ClickAsync("a[data-name='switch_account_request']:last-of-type");
+                                    }
+                                    else
+                                    {
+                                        addItemToListView(email, email, "DIE - SWITCH");
+                                        _totalAccDie++;
+                                        isContinue = false;
+                                        status += " - SWITCH FAIL";
+                                    }
+                                }
+                            }
+                        }, false, 5000);
+                    }
+                    catch (Exception ex)
+                    {
+                        addItemToListView(email, email, "DIE");
+                        _totalAccDie++;
+                        isContinue = false;
+                        status += " - LOGIN FAILED";
+                    }
+                }
+
+                // Remove all current payment methods
+                if (isContinue && cbDelAllOldCard.Checked)
+                {
+                    try
+                    {
+                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
                         await Task.Delay(1000);
                     }
                     catch (Exception ex)
@@ -688,40 +833,12 @@ namespace Auto_Tool_AMZ_with_GPM
                     }
                     if (isContinue)
                     {
-                        await PerformActionWithWait(page, "a#addAddress", async () => await page.ClickAsync("a#addAddress"));
-                        await PerformActionWithWait(page, "input#address-ui-widgets-enterAddressFullName", async () => await page.TypeAsync("input#address-ui-widgets-enterAddressFullName", randomFullname), true);
-                        await PerformActionWithWait(page, "input#address-ui-widgets-enterAddressPhoneNumber", async () => await page.TypeAsync("input#address-ui-widgets-enterAddressPhoneNumber", randomNumber), true);
-                        await PerformActionWithWait(page, "input#address-ui-widgets-enterAddressLine1", async () => await page.TypeAsync("input#address-ui-widgets-enterAddressLine1", randomAddress), true);
-                        await Task.Delay(1200);
-                        await page.Keyboard.PressAsync("ArrowDown");
-                        await page.Keyboard.PressAsync("Enter");
-                        await PerformActionWithWait(page, "input#address-ui-widgets-use-as-my-default", async () => await page.ClickAsync("input#address-ui-widgets-use-as-my-default"));
-                        await PerformActionWithWait(page, "#address-ui-widgets-form-submit-button > span > input", async () => await page.ClickAsync("#address-ui-widgets-form-submit-button > span > input"));
-                    }
-                }
-
-                // Remove all payment methods
-                if (isContinue && cbDelAllOldCard.Checked)
-                {
-                    try
-                    {
-                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet?ref_=ya_d_c_pmt_mpo", navigationOptions);
-                        await Task.Delay(1000);
-                    }
-                    catch (Exception ex)
-                    {
-                        addItemToListView(email, email, "DIE");
-                        _totalAccDie++;
-                        isContinue = false;
-                        status += " - Internet Error";
-                    }
-                    if(isContinue) {
                         var countPaymentMethods = await page.EvaluateExpressionAsync<int>("document.querySelectorAll('div.apx-wallet-desktop-payment-method-selectable-tab-inner-css div.apx-wallet-selectable-payment-method-tab').length");
                         for (int i = 0; i < countPaymentMethods; i++)
                         {
                             try
                             {
-                                await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet?ref_=ya_d_c_pmt_mpo", navigationOptions);
+                                await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
                                 await Task.Delay(1000);
                             }
                             catch (Exception ex)
@@ -755,7 +872,7 @@ namespace Auto_Tool_AMZ_with_GPM
                     {
                         return;
                     }
-                    for(int i = 0; i < nudCard.Value; i++)
+                    for (int i = 0; i < nudCard.Value; i++)
                     {
                         if (this._listCard.Length == 0)
                         {
@@ -788,53 +905,55 @@ namespace Auto_Tool_AMZ_with_GPM
                             status += " - Internet Error";
                             break;
                         }
-                        if (isContinue) {
+                        if (isContinue)
+                        {
                             await Task.Delay(2000);
-                            isContinue = await CheckAddNewAccountButton(page);
-                            if (isContinue) { 
-                                await PerformActionWithWait(page, "#add_New_Account_Button > span > a", async () =>
+
+                            // Check page has span tag with class="menuTextSelectedMobile" and text content is "Wallet"
+                            await PerformActionWithWait(page, "span.menuTextSelectedMobile", async () =>
+                            {
+                                var menuTextElement = await page.QuerySelectorAsync("span.menuTextSelectedMobile");
+                                var menuTextContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", menuTextElement);
+                                if (menuTextContent.Length != 0 && isContinue)
                                 {
-                                    var alertHeading = await page.QuerySelectorAsync("#add_New_Account_Button > span > a");
-                                    var alertHeadingContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", alertHeading);
-                                    if (alertHeadingContent.Length != 0)
+                                    if (menuTextContent.Contains("Wallet"))
                                     {
-                                        if (alertHeadingContent.Contains("Enroll") || alertHeadingContent.Contains("Enter"))
+                                        await Task.Delay(2000);
+                                        await PerformActionWithWait(page, "a.apx-wallet-add-link", async () => await page.ClickAsync("a.apx-wallet-add-link"));
+                                        await Task.Delay(2000);
+
+                                        await PerformActionWithWait(page, "span.a-button-text", async () =>
                                         {
-                                        
-                                        }
-                                        else
-                                        {
-                                            addItemToListView(email, email, "DIE");
-                                            _totalAccDie++;
-                                            isContinue = false;
-                                            status += " - Unable to add card";
-                                        }
+                                            var addCardElements = await page.QuerySelectorAllAsync("span.a-button-text");
+                                            foreach (var element in addCardElements)
+                                            {
+                                                var textContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", element);
+                                                if (textContent.Contains("Add a credit or debit card"))
+                                                {
+                                                    await element.ClickAsync();
+                                                    break;
+                                                }
+                                            }
+                                        });
+                                        await Task.Delay(5000);
+
+                                        await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.pmts-account-Number", cardNumber, email);
+                                        await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.apx-add-credit-card-account-holder-name-input", GenerateRandomUSFullName(), email);
+                                        await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_month']", cardMonth);
+                                        await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_year']", cardYear);
+                                        await ClickActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input[name='ppw-widgetEvent:AddCreditCardEvent']");
+
+                                        outputCard += $"{card},";
                                     }
-                                }, false, 2500);
-                            }
-                            if (isContinue)
-                            {
-                                await Task.Delay(2000);
-                                await PerformActionWithWait(page, "#add_New_Account_Button > span > a", async () => await page.ClickAsync("#add_New_Account_Button > span > a"));
-                                await Task.Delay(2000);
-                                await PerformActionWithWait(page, "#apx-add-credit-card-action-test-id > a", async () => await page.ClickAsync("#apx-add-credit-card-action-test-id > a"));
-                                await Task.Delay(5000);
-                                await TypeActionInIframe(page, "iframe.apx-inline-secure-iframe.pmts-portal-component", "input.apx-add-credit-card-account-holder-name-input", GenerateRandomUSFullName(), email);
-                                await TypeActionInIframe(page, "iframe.apx-inline-secure-iframe.pmts-portal-component", "input.pmts-account-Number", cardNumber, email);
-                                await SelectActionInIframe(page, "iframe.apx-inline-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_month']", cardMonth);
-                                await SelectActionInIframe(page, "iframe.apx-inline-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_year']", cardYear);
-                                await ClickActionInIframe(page, "iframe.apx-inline-secure-iframe.pmts-portal-component", "input[name='ppw-widgetEvent:AddCreditCardEvent']");
-                                //await PerformActionWithWait(page, "input.apx-add-credit-card-account-holder-name-input", async () => await page.TypeAsync("input.apx-add-credit-card-account-holder-name-input", GenerateRandomUSFullName()), true);
-                                //await PerformActionWithWait(page, "input.pmts-account-Number", async () => await page.TypeAsync("input.pmts-account-Number", cardNumber), true);
-                                //await PerformActionWithWait(page, "select[name='ppw-expirationDate_month']", async () => await page.SelectAsync("select[name='ppw-expirationDate_month']", cardMonth));
-                                //await PerformActionWithWait(page, "select[name='ppw-expirationDate_year']", async () => await page.SelectAsync("select[name='ppw-expirationDate_year']", cardYear));
-                                //await PerformActionWithWait(page, "input[name='ppw-widgetEvent:AddCreditCardEvent']", async () => await page.ClickAsync("input[name='ppw-widgetEvent:AddCreditCardEvent']"));
-                                outputCard += $"{card},";
-                            }
-                            else
-                            {
-                                break;
-                            }
+                                    else
+                                    {
+                                        addItemToListView(email, email, "DIE - Not Wallet");
+                                        _totalAccDie++;
+                                        isContinue = false;
+                                        status += " - Not Wallet";
+                                    }
+                                }
+                            }, false, 5000);
                         }
                     }
 
@@ -850,8 +969,11 @@ namespace Auto_Tool_AMZ_with_GPM
                         _totalAccDie++;
                         outputAccount = $"{email}\t{password}\t{code2FA}\t{status}";
                     }
-                    
+
                 }
+
+                // Check all card in here
+
 
                 await Task.Delay(1500);
                 closeProfile(profileId);
@@ -865,58 +987,27 @@ namespace Auto_Tool_AMZ_with_GPM
                 }
                 string date = DateTime.Now.ToString("yyyy-MM-dd");
 
-                if(status=="Success" || status.Contains("Success"))
+                if (status == "Success" || status.Contains("Success"))
                 {
-                       IOFile.AppendAllText("./_output/" + date + "-PASS.txt", outputAccount + "\n");
+                    IOFile.AppendAllText("./_output/" + date + "-PASS.txt", outputAccount + "\n");
                 }
                 else
                 {
-                       IOFile.AppendAllText("./_output/" + date + "-ERROR.txt", outputAccount + "\n");
+                    IOFile.AppendAllText("./_output/" + date + "-ERROR.txt", outputAccount + "\n");
                 }
 
             }
-        }
-        private async Task<bool> CheckAddNewAccountButton(IPage page)
-        {
-            bool isContinue = true;
-            int maxRetries = 5;
-            int retryCount = 0;
-
-            while (isContinue && retryCount < maxRetries)
-            {
-                try
-                {
-                    var button = await page.QuerySelectorAsync("#add_New_Account_Button > span > a");
-                    if (button == null)
-                    {
-                        isContinue = false;
-                        Console.WriteLine("Error: Button not found.");
-                    }
-                    else
-                    {
-                        // Button found, perform any necessary actions here
-                        Console.WriteLine("Button found.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Exception occurred: {ex.Message}");
-                }
-
-                retryCount++;
-                await Task.Delay(1000); // Wait before retrying
-            }
-
-            return isContinue;
         }
         private string GenerateRandomUSPhoneNumber()
         {
             Random random = new Random();
-            int areaCode = random.Next(200, 999);
+            string[] areaCodeArray = { "201", "202", "203", "204", "205", "206", "207", "208", "209", "210", "212", "213", "214", "215", "216", "217", "218", "219", "224", "225", "228", "229", "231", "234", "239", "240", "242", "246", "248", "250", "251", "252", "253", "254", "256", "260", "262", "264", "267", "268", "269", "270", "276", "281", "284", "289", "301", "302", "303", "304", "305", "306", "307", "308", "309", "310", "312", "313", "314", "315", "316", "317", "318", "319", "320", "321", "323", "325", "330", "334", "336", "337", "339", "340", "345", "347", "351", "352", "360", "361", "386", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410", "412", "413", "414", "415", "416", "417", "418", "419", "423", "425", "430", "432", "434", "435", "440", "441", "443", "450", "456", "469", "473", "478", "479", "480", "484", "501", "502", "503", "504", "505", "506", "507", "508", "509", "510", "512", "513", "514", "515", "516", "517", "518", "519", "520", "530", "540", "541", "551", "559", "561", "562", "563", "567", "570", "571", "573", "574", "580", "585", "586", "601", "602", "603", "604", "605", "606", "607", "608", "609", "610", "612", "613", "614", "615", "616", "617", "618", "619", "620", "623", "626", "630", "631", "636", "641", "646", "647", "649", "650", "651", "660", "661", "662", "664", "670", "671", "678", "682", "701", "702", "703", "704", "705", "706", "707", "708", "709", "710", "712", "713", "714", "715", "716", "717", "718", "719", "720", "724", "727", "731", "732", "734", "740", "754", "757", "758", "760", "763", "765", "767", "770", "772", "773", "774", "775", "778", "780", "781", "784", "785", "786", "787", "801", "802", "803", "804", "805", "806", "807", "808", "809", "810", "812", "813", "814", "815", "816", "817", "818", "819", "828", "830", "831", "832", "843", "845", "847", "848", "850", "856", "857", "858", "859", "860", "862", "863", "864", "865", "867", "868", "869", "870", "876", "878", "880", "881", "882", "901", "902", "903", "904", "905", "906", "907", "908", "909", "910", "912", "913", "914", "915", "916", "917", "918", "919", "920", "925", "928", "931", "936", "937", "939", "940", "941", "947", "949", "952", "954", "956", "970", "971", "972", "973", "978", "979", "980", "985", "989" };
+            int areaCode = int.Parse(areaCodeArray[random.Next(areaCodeArray.Length)]);
+
             int centralOfficeCode = random.Next(200, 999);
             int lineNumber = random.Next(1000, 9999);
 
-            return $"{areaCode}-{centralOfficeCode}-{lineNumber}";
+            return $"({areaCode}) {centralOfficeCode}-{lineNumber}";
         }
 
         private string GenerateRandomUSAddress()
@@ -966,7 +1057,7 @@ namespace Auto_Tool_AMZ_with_GPM
 
         private bool checkAllRequirements()
         {
-            if (txtGPMAPI.Text == "" || txtListCard.Text == "" || txtAMZAccount.Text == "")
+            if (txtGPMAPI.Text == "" || txtListCard.Text == "" || txtAMZAccount.Text == "" || txtURL.Text == "" || txtImageDie.Text == "")  
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

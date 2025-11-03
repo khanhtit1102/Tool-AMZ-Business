@@ -40,18 +40,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSetImageList = new System.Windows.Forms.Button();
             this.btnAddURL = new System.Windows.Forms.Button();
             this.btnAddAcc = new System.Windows.Forms.Button();
             this.btnAddCard = new System.Windows.Forms.Button();
             this.lblAccPass = new System.Windows.Forms.Label();
             this.lblAccDie = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
+            this.txtImageDie = new System.Windows.Forms.TextBox();
             this.lblAccCheck = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.txtAMZAccount = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.lblAccount = new System.Windows.Forms.Label();
             this.lblCard = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtImageDie = new System.Windows.Forms.TextBox();
-            this.btnSetImageList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).BeginInit();
@@ -115,6 +115,8 @@
             // cbDelAllOldCard
             // 
             this.cbDelAllOldCard.AutoSize = true;
+            this.cbDelAllOldCard.Checked = true;
+            this.cbDelAllOldCard.CheckState = System.Windows.Forms.CheckState.Checked;
             this.cbDelAllOldCard.Location = new System.Drawing.Point(15, 114);
             this.cbDelAllOldCard.Name = "cbDelAllOldCard";
             this.cbDelAllOldCard.Size = new System.Drawing.Size(114, 17);
@@ -143,6 +145,7 @@
             this.cbAddAddress.TabIndex = 0;
             this.cbAddAddress.Text = "Thêm địa chỉ";
             this.cbAddAddress.UseVisualStyleBackColor = true;
+            this.cbAddAddress.Visible = false;
             // 
             // nudChrome
             // 
@@ -161,7 +164,7 @@
             this.nudChrome.Size = new System.Drawing.Size(65, 20);
             this.nudChrome.TabIndex = 3;
             this.nudChrome.Value = new decimal(new int[] {
-            24,
+            1,
             0,
             0,
             0});
@@ -214,6 +217,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(444, 221);
             this.panel1.TabIndex = 6;
+            // 
+            // btnSetImageList
+            // 
+            this.btnSetImageList.Location = new System.Drawing.Point(346, 90);
+            this.btnSetImageList.Name = "btnSetImageList";
+            this.btnSetImageList.Size = new System.Drawing.Size(75, 23);
+            this.btnSetImageList.TabIndex = 5;
+            this.btnSetImageList.Text = "Set Image";
+            this.btnSetImageList.UseVisualStyleBackColor = true;
+            this.btnSetImageList.Click += new System.EventHandler(this.btnSetImageList_Click);
             // 
             // btnAddURL
             // 
@@ -280,6 +293,14 @@
             this.btnLoad.UseVisualStyleBackColor = false;
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
+            // txtImageDie
+            // 
+            this.txtImageDie.Location = new System.Drawing.Point(91, 91);
+            this.txtImageDie.Name = "txtImageDie";
+            this.txtImageDie.Size = new System.Drawing.Size(233, 20);
+            this.txtImageDie.TabIndex = 1;
+            this.txtImageDie.Text = "./_input/ImageList.txt";
+            // 
             // lblAccCheck
             // 
             this.lblAccCheck.AutoSize = true;
@@ -336,6 +357,15 @@
             this.lblCard.Size = new System.Drawing.Size(17, 24);
             this.lblCard.TabIndex = 2;
             this.lblCard.Text = "-";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 94);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(57, 13);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Image DIE";
             // 
             // label9
             // 
@@ -403,7 +433,7 @@
             this.nudCard.Size = new System.Drawing.Size(65, 20);
             this.nudCard.TabIndex = 3;
             this.nudCard.Value = new decimal(new int[] {
-            1,
+            15,
             0,
             0,
             0});
@@ -462,33 +492,6 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(763, 17);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "Version: 20250928";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Image DIE";
-            // 
-            // txtImageDie
-            // 
-            this.txtImageDie.Location = new System.Drawing.Point(91, 91);
-            this.txtImageDie.Name = "txtImageDie";
-            this.txtImageDie.Size = new System.Drawing.Size(233, 20);
-            this.txtImageDie.TabIndex = 1;
-            this.txtImageDie.Text = "./_input/ImageList.txt";
-            // 
-            // btnSetImageList
-            // 
-            this.btnSetImageList.Location = new System.Drawing.Point(346, 90);
-            this.btnSetImageList.Name = "btnSetImageList";
-            this.btnSetImageList.Size = new System.Drawing.Size(75, 23);
-            this.btnSetImageList.TabIndex = 5;
-            this.btnSetImageList.Text = "Set Image";
-            this.btnSetImageList.UseVisualStyleBackColor = true;
-            this.btnSetImageList.Click += new System.EventHandler(this.btnSetImageList_Click);
             // 
             // Form1
             // 
