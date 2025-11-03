@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbDelAllOldCard = new System.Windows.Forms.CheckBox();
             this.cbRandomNameCard = new System.Windows.Forms.CheckBox();
-            this.cbAddAddress = new System.Windows.Forms.CheckBox();
             this.nudChrome = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.btnRun = new System.Windows.Forms.Button();
@@ -69,10 +68,14 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.nudDelay = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelay)).BeginInit();
             this.SuspendLayout();
             // 
             // cbProxy
@@ -135,17 +138,6 @@
             this.cbRandomNameCard.TabIndex = 0;
             this.cbRandomNameCard.Text = "Random name card";
             this.cbRandomNameCard.UseVisualStyleBackColor = true;
-            // 
-            // cbAddAddress
-            // 
-            this.cbAddAddress.AutoSize = true;
-            this.cbAddAddress.Location = new System.Drawing.Point(15, 160);
-            this.cbAddAddress.Name = "cbAddAddress";
-            this.cbAddAddress.Size = new System.Drawing.Size(88, 17);
-            this.cbAddAddress.TabIndex = 0;
-            this.cbAddAddress.Text = "Thêm địa chỉ";
-            this.cbAddAddress.UseVisualStyleBackColor = true;
-            this.cbAddAddress.Visible = false;
             // 
             // nudChrome
             // 
@@ -493,6 +485,46 @@
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "Version: 20250928";
             // 
+            // nudDelay
+            // 
+            this.nudDelay.Location = new System.Drawing.Point(100, 162);
+            this.nudDelay.Maximum = new decimal(new int[] {
+            600,
+            0,
+            0,
+            0});
+            this.nudDelay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDelay.Name = "nudDelay";
+            this.nudDelay.Size = new System.Drawing.Size(65, 20);
+            this.nudDelay.TabIndex = 3;
+            this.nudDelay.Value = new decimal(new int[] {
+            180,
+            0,
+            0,
+            0});
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(171, 164);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(28, 13);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Giây";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 164);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Thời gian delay";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,16 +534,18 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.btnRun);
+            this.Controls.Add(this.nudDelay);
             this.Controls.Add(this.nudCard);
             this.Controls.Add(this.nudChrome);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtChromeVersion);
             this.Controls.Add(this.txtGPMAPI);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.txtProxy);
-            this.Controls.Add(this.cbAddAddress);
             this.Controls.Add(this.cbRandomNameCard);
             this.Controls.Add(this.cbDelAllOldCard);
             this.Controls.Add(this.cbProxy);
@@ -525,6 +559,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDelay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,7 +573,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox cbDelAllOldCard;
         private System.Windows.Forms.CheckBox cbRandomNameCard;
-        private System.Windows.Forms.CheckBox cbAddAddress;
         private System.Windows.Forms.NumericUpDown nudChrome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRun;
@@ -572,6 +606,9 @@
         private System.Windows.Forms.Button btnSetImageList;
         private System.Windows.Forms.TextBox txtImageDie;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown nudDelay;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label12;
     }
 }
 

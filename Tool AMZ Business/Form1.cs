@@ -23,6 +23,8 @@ using System.Net.NetworkInformation;
 using OpenQA.Selenium.DevTools;
 using IniParser;
 using IniParser.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
+using System.Text.RegularExpressions;
 
 namespace Auto_Tool_AMZ_with_GPM
 {
@@ -33,6 +35,7 @@ namespace Auto_Tool_AMZ_with_GPM
         private string[] _listCard;
         private string[] _listAccount;
         private string[] _listURL;
+        private string[] _listImage;
         private int windowCount = 0;
         private int _totalWindows = 0;
         private int _totalAccCheck = 0;
@@ -601,11 +604,18 @@ namespace Auto_Tool_AMZ_with_GPM
                     addItemToListView(email, email, "DIE");
                     _totalAccDie++;
                     isContinue = false;
-                    status += " - Internet Error";
+                    status += " - Internet Error (1)";
                 }
 
-
-                //await PerformActionWithWait(page, "body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a", async () => await page.ClickAsync("body > div > div.a-row.a-spacing-double-large > div.a-section > div > div > form > div.a-row.a-spacing-large > div > div > div.a-row.a-spacing-base > div > div.a-column.a-span6.a-span-last.a-text-right > a"));
+                if (isContinue)
+                {
+                    var continueButton = await page.QuerySelectorAsync("button[type='submit'][alt='Continue shopping']");
+                    if (continueButton != null)
+                    {
+                        await continueButton.ClickAsync();
+                        await Task.Delay(2000);
+                    }
+                }
 
                 if (isContinue)
                 {
@@ -627,7 +637,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                 addItemToListView(email, email, "DIE - PWD");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - WRONG PASSWORD";
+                                status += " - WRONG PASSWORD (1)";
                             }
                         }
                     }, false, 1500);
@@ -670,28 +680,28 @@ namespace Auto_Tool_AMZ_with_GPM
                                 addItemToListView(email, email, "DIE");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - WRONG PASSWORD";
+                                status += " - WRONG PASSWORD (2)";
                             }
                             if (alertHeadingContent.Contains("locked"))
                             {
                                 addItemToListView(email, email, "DIE");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - Account Locked";
+                                status += " - Account Locked (1)";
                             }
                             if (alertHeadingContent.Contains("temporarily"))
                             {
                                 addItemToListView(email, email, "DIE");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - Temporarily";
+                                status += " - Temporarily (1)";
                             }
                             if (alertHeadingContent.Contains("verification"))
                             {
                                 addItemToListView(email, email, "DIE");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - Verification";
+                                status += " - Verification (1)";
                             }
                         }
                     }, false, 1500);
@@ -717,10 +727,8 @@ namespace Auto_Tool_AMZ_with_GPM
                         await PerformActionWithWait(page, "#Primary\\.REGISTRATION_START_COMPLETE_REGISTRATION\\.redirect", async () => await page.ClickAsync("#Primary\\.REGISTRATION_START_COMPLETE_REGISTRATION\\.redirect"), false, 5000);
 
 
-                        // Nếu trang có text "Enter your business details", thì điền thông tin business profile
                         await PerformActionWithWait(page, "text=Enter your business details", async () =>
                         {
-                            // Điền thông tin business profile ở đây
                             string randomNumber = GenerateRandomUSPhoneNumber();
                             string randomAddress = GenerateRandomUSAddress();
                             string randomFullname = GenerateRandomUSFullName();
@@ -773,7 +781,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                 addItemToListView(email, email, "DIE - Unable to add address");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - Unable to add address";
+                                status += " - Unable to add address (1)";
                             }
 
                             await Task.Delay(3000);
@@ -793,7 +801,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                     var accountListsText = await page.EvaluateFunctionAsync<string>("el => el.textContent", accountListsElement);
                                     if (!string.IsNullOrEmpty(accountListsText) && accountListsText.Contains("Account & Lists"))
                                     {
-                                        await PerformActionWithWait(page, "a#nav-item-switch-account", async () => await page.ClickAsync("a#nav-item-switch-account"));
+                                        await PerformActionWithWait(page, "button#nav-item-switch-account", async () => await page.ClickAsync("button#nav-item-switch-account"));
                                         await page.ClickAsync("a[data-name='switch_account_request']:last-of-type");
                                     }
                                     else
@@ -801,7 +809,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                         addItemToListView(email, email, "DIE - SWITCH");
                                         _totalAccDie++;
                                         isContinue = false;
-                                        status += " - SWITCH FAIL";
+                                        status += " - SWITCH FAIL (1)";
                                     }
                                 }
                             }
@@ -812,7 +820,7 @@ namespace Auto_Tool_AMZ_with_GPM
                         addItemToListView(email, email, "DIE");
                         _totalAccDie++;
                         isContinue = false;
-                        status += " - LOGIN FAILED";
+                        status += " - LOGIN FAILED (1)";
                     }
                 }
 
@@ -822,17 +830,30 @@ namespace Auto_Tool_AMZ_with_GPM
                     try
                     {
                         await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
-                        await Task.Delay(1000);
+                        await Task.Delay(2000);
+                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
+                        await Task.Delay(2000);
                     }
                     catch (Exception ex)
                     {
                         addItemToListView(email, email, "DIE");
                         _totalAccDie++;
                         isContinue = false;
-                        status += " - Internet Error";
+                        status += " - Internet Error (2)";
                     }
+
                     if (isContinue)
                     {
+                        var logoLinkElement = await page.QuerySelectorAsync("a.nav-logo-link");
+                        if (logoLinkElement != null)
+                        {
+                            var ariaLabel = await page.EvaluateFunctionAsync<string>("el => el.getAttribute('aria-label')", logoLinkElement);
+                            if (string.IsNullOrEmpty(ariaLabel) || !ariaLabel.Contains("Business"))
+                            {
+                                // Tại công đoạn này chọn lại chuyển sang business
+                            }
+                        }
+
                         var countPaymentMethods = await page.EvaluateExpressionAsync<int>("document.querySelectorAll('div.apx-wallet-desktop-payment-method-selectable-tab-inner-css div.apx-wallet-selectable-payment-method-tab').length");
                         for (int i = 0; i < countPaymentMethods; i++)
                         {
@@ -846,7 +867,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                 addItemToListView(email, email, "DIE");
                                 _totalAccDie++;
                                 isContinue = false;
-                                status += " - Internet Error";
+                                status += " - Internet Error (6)";
                                 break;
                             }
                             await PerformActionWithWait(page, "a[href='#'][class='a-link-normal']", async () => await page.ClickAsync("a[href='#'][class='a-link-normal']"));
@@ -861,6 +882,8 @@ namespace Auto_Tool_AMZ_with_GPM
 
                 // Create a array of links
                 string[] links = this._listURL;
+
+                string[] cardAdded = new string[] { };
 
                 string outputAccount = $"{email}\t{password}\t{code2FA}\t{status}";
                 // Add new payment methods
@@ -880,6 +903,7 @@ namespace Auto_Tool_AMZ_with_GPM
                         }
                         countCard++;
                         string card = this._listCard[0];
+                        cardAdded.Append(card).ToArray();
                         this._listCard = this._listCard.Skip(1).ToArray();
                         lblCard.Text = this._listCard.Length.ToString();
                         IOFile.WriteAllLines(txtListCard.Text, this._listCard);
@@ -902,7 +926,7 @@ namespace Auto_Tool_AMZ_with_GPM
                             addItemToListView(email, email, "DIE");
                             _totalAccDie++;
                             isContinue = false;
-                            status += " - Internet Error";
+                            status += " - Internet Error (3)";
                             break;
                         }
                         if (isContinue)
@@ -950,7 +974,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                         addItemToListView(email, email, "DIE - Not Wallet");
                                         _totalAccDie++;
                                         isContinue = false;
-                                        status += " - Not Wallet";
+                                        status += " - Not Wallet (1)";
                                     }
                                 }
                             }, false, 5000);
@@ -973,6 +997,44 @@ namespace Auto_Tool_AMZ_with_GPM
                 }
 
                 // Check all card in here
+                if (isContinue)
+                {
+                    await Task.Delay((int)nudDelay.Value * 1000);
+                    try
+                    {
+                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
+                        await Task.Delay(1000);
+                    }
+                    catch (Exception ex)
+                    {
+                        addItemToListView(email, email, "DIE");
+                        _totalAccDie++;
+                        isContinue = false;
+                        status += " - Internet Error (5)";
+                    }
+
+                    string dateNow = DateTime.Now.ToString("yyyy-MM-dd");
+                    if (isContinue)
+                    {
+                        var paymentMethods = await page.EvaluateFunctionAsync<string[]>("() => Array.from(document.querySelectorAll('div.apx-wallet-desktop-payment-method-selectable-tab-inner-css div.apx-wallet-selectable-payment-method-tab')).map(e => e.outerHTML)");
+                        foreach (var paymentMethod in paymentMethods)
+                        {
+                            // Get 4 last digits of card
+                            string cardSiteNumber = paymentMethod.Substring(paymentMethod.IndexOf("••••") + 5, 4);
+                            string cardSiteName = Regex.Match(paymentMethod, "<span class=\"a-size-base apx-wallet-tab-pm-name-text a-text-bold\">(.*?)</span>").Groups[1].Value;
+
+                            // Nếu cardSiteNumber là một trong những thẻ đã thêm, thì lưu vào file
+                            if (cardAdded.Any(c => c.Contains(cardSiteNumber)))
+                            {
+                                IOFile.AppendAllText($"./_output/{dateNow}-CARD-ADDED.txt", $"{email}\t{cardSiteName}\t**** **** **** {cardSiteNumber}\n");
+                            }
+
+                        }
+                    }
+
+                }
+
+
 
 
                 await Task.Delay(1500);
@@ -1057,7 +1119,7 @@ namespace Auto_Tool_AMZ_with_GPM
 
         private bool checkAllRequirements()
         {
-            if (txtGPMAPI.Text == "" || txtListCard.Text == "" || txtAMZAccount.Text == "" || txtURL.Text == "" || txtImageDie.Text == "")  
+            if (txtGPMAPI.Text == "" || txtListCard.Text == "" || txtAMZAccount.Text == "" || txtURL.Text == "" || txtImageDie.Text == "")
             {
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -1094,7 +1156,9 @@ namespace Auto_Tool_AMZ_with_GPM
             string[] accLines = IOFile.ReadAllLines(txtAMZAccount.Text);
             this._listAccount = accLines;
             lblAccount.Text = accLines.Length.ToString();
-            if (cardLines.Length <= 0 || accLines.Length <= 0)
+            string[] imageFileRead = IOFile.ReadAllLines(txtImageDie.Text);
+            this._listImage = imageFileRead;
+            if (cardLines.Length <= 0 || accLines.Length <= 0 || imageFileRead.Length <= 0)
             {
                 timer1.Stop();
                 MessageBox.Show("File không có dữ liệu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
