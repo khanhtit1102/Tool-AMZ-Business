@@ -25,6 +25,7 @@ using IniParser;
 using IniParser.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 using System.Text.RegularExpressions;
+using System.Dynamic;
 
 namespace Auto_Tool_AMZ_with_GPM
 {
@@ -41,6 +42,8 @@ namespace Auto_Tool_AMZ_with_GPM
         private int _totalAccCheck = 0;
         private int _totalAccDie = 0;
         private int _totalAccPass = 0;
+        private int _totalCardLive = 0;
+        private int _totalCardDie = 0;
         private readonly string configPath = "config.ini";
         private FileIniDataParser parser;
         private IniData data;
@@ -146,6 +149,8 @@ namespace Auto_Tool_AMZ_with_GPM
             this._totalAccDie = 0;
             this._totalAccPass = 0;
             this._totalWindows = 0;
+            this._totalCardLive = 0;
+            this._totalCardDie = 0;
             txtAMZAccount.ReadOnly = true;
             txtListCard.ReadOnly = true;
             txtGPMAPI.ReadOnly = true;
@@ -201,7 +206,8 @@ namespace Auto_Tool_AMZ_with_GPM
                         windowCount = 0;
                     }
                     _totalWindows++;
-                    lblAccCheck.Text = "Card Live: " + _totalAccCheck.ToString();
+                    lblCardLive.Text = "Card LIVE: " + _totalCardLive.ToString();
+                    lblCardDie.Text = "DIE: " + _totalCardDie.ToString();
                     lblAccDie.Text = "Acc DIE: " + _totalAccDie.ToString();
                     lblAccPass.Text = "Acc PASS: " + _totalAccPass.ToString();
 
@@ -831,8 +837,6 @@ namespace Auto_Tool_AMZ_with_GPM
                     {
                         await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
                         await Task.Delay(2000);
-                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
-                        await Task.Delay(2000);
                     }
                     catch (Exception ex)
                     {
@@ -850,7 +854,12 @@ namespace Auto_Tool_AMZ_with_GPM
                             var ariaLabel = await page.EvaluateFunctionAsync<string>("el => el.getAttribute('aria-label')", logoLinkElement);
                             if (string.IsNullOrEmpty(ariaLabel) || !ariaLabel.Contains("Business"))
                             {
-                                // Tại công đoạn này chọn lại chuyển sang business
+                                await NavigateWithRetry(page, "https://www.amazon.com/ap/signin?openid.pape.max_auth_age=0&openid.return_to=https%3A%2F%2Fwww.amazon.com%2Fgp%2Fcss%2Fhomepage.html%3Fref_%3Dnav_youraccount_switchacct&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.assoc_handle=usflex&openid.mode=checkid_setup&marketPlaceId=ATVPDKIKX0DER&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0&switch_account=picker&ignoreAuthState=1&_encoding=UTF8", navigationOptions);
+                                await Task.Delay(2000);
+                                await ClickLastSwitchAccountRequestAsync(page);
+                                await Task.Delay(2000);
+                                await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
+                                await Task.Delay(2000);
                             }
                         }
 
@@ -903,7 +912,7 @@ namespace Auto_Tool_AMZ_with_GPM
                         }
                         countCard++;
                         string card = this._listCard[0];
-                        cardAdded.Append(card).ToArray();
+                        cardAdded = cardAdded.Append(card).ToArray();
                         this._listCard = this._listCard.Skip(1).ToArray();
                         lblCard.Text = this._listCard.Length.ToString();
                         IOFile.WriteAllLines(txtListCard.Text, this._listCard);
@@ -1023,10 +1032,25 @@ namespace Auto_Tool_AMZ_with_GPM
                             string cardSiteNumber = paymentMethod.Substring(paymentMethod.IndexOf("••••") + 5, 4);
                             string cardSiteName = Regex.Match(paymentMethod, "<span class=\"a-size-base apx-wallet-tab-pm-name-text a-text-bold\">(.*?)</span>").Groups[1].Value;
 
-                            // Nếu cardSiteNumber là một trong những thẻ đã thêm, thì lưu vào file
                             if (cardAdded.Any(c => c.Contains(cardSiteNumber)))
                             {
-                                IOFile.AppendAllText($"./_output/{dateNow}-CARD-ADDED.txt", $"{email}\t{cardSiteName}\t**** **** **** {cardSiteNumber}\n");
+                                bool isFound = false;
+                                foreach (var image in this._listImage)
+                                {
+                                    if (paymentMethod.ToLower().Contains(image.ToLower())) { isFound = true; break; }
+                                }
+                                if (!isFound)
+                                {
+                                    _totalCardLive++;
+                                    string cardInfo = cardAdded.First(c => c.Contains(cardSiteNumber));
+                                    IOFile.AppendAllText("./_output/" + dateNow + "-CardLIVE.txt", cardInfo + "|" + cardSiteName + "\n");
+                                }
+                                else
+                                {
+                                    _totalCardDie++;
+                                    string cardInfo = cardAdded.First(c => c.Contains(cardSiteNumber));
+                                    IOFile.AppendAllText("./_output/" + dateNow + "-CardDIE.txt", cardInfo + "|" + cardSiteName + "\n");
+                                }
                             }
 
                         }
@@ -1245,6 +1269,25 @@ namespace Auto_Tool_AMZ_with_GPM
         private void btnSetImageList_Click(object sender, EventArgs e)
         {
             Process.Start("notepad.exe", txtImageDie.Text);
+        }
+        // Add this method to your Form1 class
+        public async Task ClickLastSwitchAccountRequestAsync(IPage page)
+        {
+            // Wait for at least one element to appear
+            await page.WaitForSelectorAsync("a[data-name='switch_account_request']");
+
+            // Query all matching elements
+            var elements = await page.QuerySelectorAllAsync("a[data-name='switch_account_request']");
+
+            if (elements != null && elements.Length > 0)
+            {
+                // Click the last element in the array
+                await elements[elements.Length - 1].ClickAsync();
+            }
+            else
+            {
+                throw new Exception("No elements with data-name='switch_account_request' found.");
+            }
         }
     }
 }

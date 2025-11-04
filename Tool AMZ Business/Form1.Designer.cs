@@ -47,7 +47,7 @@
             this.lblAccDie = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtImageDie = new System.Windows.Forms.TextBox();
-            this.lblAccCheck = new System.Windows.Forms.Label();
+            this.lblCardLive = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.txtAMZAccount = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@
             this.nudDelay = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.lblCardDie = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).BeginInit();
@@ -193,7 +194,8 @@
             this.panel1.Controls.Add(this.lblAccDie);
             this.panel1.Controls.Add(this.btnLoad);
             this.panel1.Controls.Add(this.txtImageDie);
-            this.panel1.Controls.Add(this.lblAccCheck);
+            this.panel1.Controls.Add(this.lblCardDie);
+            this.panel1.Controls.Add(this.lblCardLive);
             this.panel1.Controls.Add(this.txtURL);
             this.panel1.Controls.Add(this.txtAMZAccount);
             this.panel1.Controls.Add(this.label11);
@@ -266,7 +268,7 @@
             this.lblAccDie.AutoSize = true;
             this.lblAccDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAccDie.ForeColor = System.Drawing.Color.Red;
-            this.lblAccDie.Location = new System.Drawing.Point(176, 194);
+            this.lblAccDie.Location = new System.Drawing.Point(218, 194);
             this.lblAccDie.Name = "lblAccDie";
             this.lblAccDie.Size = new System.Drawing.Size(86, 20);
             this.lblAccDie.TabIndex = 0;
@@ -293,16 +295,16 @@
             this.txtImageDie.TabIndex = 1;
             this.txtImageDie.Text = "./_input/ImageList.txt";
             // 
-            // lblAccCheck
+            // lblCardLive
             // 
-            this.lblAccCheck.AutoSize = true;
-            this.lblAccCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAccCheck.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.lblAccCheck.Location = new System.Drawing.Point(11, 194);
-            this.lblAccCheck.Name = "lblAccCheck";
-            this.lblAccCheck.Size = new System.Drawing.Size(93, 20);
-            this.lblAccCheck.TabIndex = 0;
-            this.lblAccCheck.Text = "Card Live: --";
+            this.lblCardLive.AutoSize = true;
+            this.lblCardLive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardLive.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.lblCardLive.Location = new System.Drawing.Point(35, 181);
+            this.lblCardLive.Name = "lblCardLive";
+            this.lblCardLive.Size = new System.Drawing.Size(92, 18);
+            this.lblCardLive.TabIndex = 0;
+            this.lblCardLive.Text = "Card LIVE: --";
             // 
             // txtURL
             // 
@@ -481,9 +483,9 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(763, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(732, 17);
             this.toolStripStatusLabel2.Spring = true;
-            this.toolStripStatusLabel2.Text = "Version: 20250928";
+            this.toolStripStatusLabel2.Text = "Version: 20250411";
             // 
             // nudDelay
             // 
@@ -502,7 +504,7 @@
             this.nudDelay.Size = new System.Drawing.Size(65, 20);
             this.nudDelay.TabIndex = 3;
             this.nudDelay.Value = new decimal(new int[] {
-            180,
+            120,
             0,
             0,
             0});
@@ -524,6 +526,17 @@
             this.label12.Size = new System.Drawing.Size(79, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Thời gian delay";
+            // 
+            // lblCardDie
+            // 
+            this.lblCardDie.AutoSize = true;
+            this.lblCardDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardDie.ForeColor = System.Drawing.Color.Red;
+            this.lblCardDie.Location = new System.Drawing.Point(77, 199);
+            this.lblCardDie.Name = "lblCardDie";
+            this.lblCardDie.Size = new System.Drawing.Size(50, 18);
+            this.lblCardDie.TabIndex = 0;
+            this.lblCardDie.Text = "DIE: --";
             // 
             // Form1
             // 
@@ -577,7 +590,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRun;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblAccCheck;
+        private System.Windows.Forms.Label lblCardLive;
         private System.Windows.Forms.Label lblAccPass;
         private System.Windows.Forms.Label lblAccDie;
         private System.Windows.Forms.Label label6;
@@ -609,6 +622,7 @@
         private System.Windows.Forms.NumericUpDown nudDelay;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblCardDie;
     }
 }
 
