@@ -47,6 +47,7 @@
             this.lblAccDie = new System.Windows.Forms.Label();
             this.btnLoad = new System.Windows.Forms.Button();
             this.txtImageDie = new System.Windows.Forms.TextBox();
+            this.lblCardDie = new System.Windows.Forms.Label();
             this.lblCardLive = new System.Windows.Forms.Label();
             this.txtURL = new System.Windows.Forms.TextBox();
             this.txtAMZAccount = new System.Windows.Forms.TextBox();
@@ -71,7 +72,6 @@
             this.nudDelay = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.lblCardDie = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).BeginInit();
@@ -157,7 +157,7 @@
             this.nudChrome.Size = new System.Drawing.Size(65, 20);
             this.nudChrome.TabIndex = 3;
             this.nudChrome.Value = new decimal(new int[] {
-            1,
+            24,
             0,
             0,
             0});
@@ -294,6 +294,17 @@
             this.txtImageDie.Size = new System.Drawing.Size(233, 20);
             this.txtImageDie.TabIndex = 1;
             this.txtImageDie.Text = "./_input/ImageList.txt";
+            // 
+            // lblCardDie
+            // 
+            this.lblCardDie.AutoSize = true;
+            this.lblCardDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCardDie.ForeColor = System.Drawing.Color.Red;
+            this.lblCardDie.Location = new System.Drawing.Point(77, 199);
+            this.lblCardDie.Name = "lblCardDie";
+            this.lblCardDie.Size = new System.Drawing.Size(50, 18);
+            this.lblCardDie.TabIndex = 0;
+            this.lblCardDie.Text = "DIE: --";
             // 
             // lblCardLive
             // 
@@ -483,7 +494,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(732, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(763, 17);
             this.toolStripStatusLabel2.Spring = true;
             this.toolStripStatusLabel2.Text = "Version: 20250411";
             // 
@@ -526,17 +537,6 @@
             this.label12.Size = new System.Drawing.Size(79, 13);
             this.label12.TabIndex = 2;
             this.label12.Text = "Thời gian delay";
-            // 
-            // lblCardDie
-            // 
-            this.lblCardDie.AutoSize = true;
-            this.lblCardDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCardDie.ForeColor = System.Drawing.Color.Red;
-            this.lblCardDie.Location = new System.Drawing.Point(77, 199);
-            this.lblCardDie.Name = "lblCardDie";
-            this.lblCardDie.Size = new System.Drawing.Size(50, 18);
-            this.lblCardDie.TabIndex = 0;
-            this.lblCardDie.Text = "DIE: --";
             // 
             // Form1
             // 

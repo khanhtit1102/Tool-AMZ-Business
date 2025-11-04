@@ -910,20 +910,7 @@ namespace Auto_Tool_AMZ_with_GPM
                         {
                             break;
                         }
-                        countCard++;
-                        string card = this._listCard[0];
-                        cardAdded = cardAdded.Append(card).ToArray();
-                        this._listCard = this._listCard.Skip(1).ToArray();
-                        lblCard.Text = this._listCard.Length.ToString();
-                        IOFile.WriteAllLines(txtListCard.Text, this._listCard);
-                        string[] cardInfo = card.Split('|');
-                        string cardNumber = cardInfo[0];
-                        string cardMonth = cardInfo[1];
-                        if (cardMonth.StartsWith("0"))
-                        {
-                            cardMonth = cardMonth.Substring(1);
-                        }
-                        string cardYear = cardInfo[2];
+                        
                         Random random = new Random();
                         try
                         {
@@ -938,47 +925,17 @@ namespace Auto_Tool_AMZ_with_GPM
                             status += " - Internet Error (3)";
                             break;
                         }
+
                         if (isContinue)
                         {
-                            await Task.Delay(2000);
-
-                            // Check page has span tag with class="menuTextSelectedMobile" and text content is "Wallet"
-                            await PerformActionWithWait(page, "span.menuTextSelectedMobile", async () =>
+                            try
                             {
+                                await Task.Delay(2000);
                                 var menuTextElement = await page.QuerySelectorAsync("span.menuTextSelectedMobile");
                                 var menuTextContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", menuTextElement);
-                                if (menuTextContent.Length != 0 && isContinue)
+                                if (menuTextContent.Length != 0)
                                 {
-                                    if (menuTextContent.Contains("Wallet"))
-                                    {
-                                        await Task.Delay(2000);
-                                        await PerformActionWithWait(page, "a.apx-wallet-add-link", async () => await page.ClickAsync("a.apx-wallet-add-link"));
-                                        await Task.Delay(2000);
-
-                                        await PerformActionWithWait(page, "span.a-button-text", async () =>
-                                        {
-                                            var addCardElements = await page.QuerySelectorAllAsync("span.a-button-text");
-                                            foreach (var element in addCardElements)
-                                            {
-                                                var textContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", element);
-                                                if (textContent.Contains("Add a credit or debit card"))
-                                                {
-                                                    await element.ClickAsync();
-                                                    break;
-                                                }
-                                            }
-                                        });
-                                        await Task.Delay(5000);
-
-                                        await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.pmts-account-Number", cardNumber, email);
-                                        await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.apx-add-credit-card-account-holder-name-input", GenerateRandomUSFullName(), email);
-                                        await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_month']", cardMonth);
-                                        await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_year']", cardYear);
-                                        await ClickActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input[name='ppw-widgetEvent:AddCreditCardEvent']");
-
-                                        outputCard += $"{card},";
-                                    }
-                                    else
+                                    if (!menuTextContent.Contains("Wallet"))
                                     {
                                         addItemToListView(email, email, "DIE - Not Wallet");
                                         _totalAccDie++;
@@ -986,7 +943,59 @@ namespace Auto_Tool_AMZ_with_GPM
                                         status += " - Not Wallet (1)";
                                     }
                                 }
-                            }, false, 5000);
+                            }
+                            catch(Exception ex)
+                            {
+                                addItemToListView(email, email, "DIE - Not Wallet");
+                                _totalAccDie++;
+                                isContinue = false;
+                                status += " - Not Wallet (2)";
+                            }
+                        }
+
+                        if (isContinue)
+                        {
+                            countCard++;
+                            string card = this._listCard[0];
+                            cardAdded = cardAdded.Append(card).ToArray();
+                            this._listCard = this._listCard.Skip(1).ToArray();
+                            lblCard.Text = this._listCard.Length.ToString();
+                            IOFile.WriteAllLines(txtListCard.Text, this._listCard);
+                            string[] cardInfo = card.Split('|');
+                            string cardNumber = cardInfo[0];
+                            string cardMonth = cardInfo[1];
+                            if (cardMonth.StartsWith("0"))
+                            {
+                                cardMonth = cardMonth.Substring(1);
+                            }
+                            string cardYear = cardInfo[2];
+
+                            await Task.Delay(2000);
+                            await PerformActionWithWait(page, "a.apx-wallet-add-link", async () => await page.ClickAsync("a.apx-wallet-add-link"));
+                            await Task.Delay(2000);
+
+                            await PerformActionWithWait(page, "span.a-button-text", async () =>
+                            {
+                                var addCardElements = await page.QuerySelectorAllAsync("span.a-button-text");
+                                foreach (var element in addCardElements)
+                                {
+                                    var textContent = await page.EvaluateFunctionAsync<string>("el => el.textContent", element);
+                                    if (textContent.Contains("Add a credit or debit card"))
+                                    {
+                                        await element.ClickAsync();
+                                        break;
+                                    }
+                                }
+                            });
+                            await Task.Delay(5000);
+
+                            await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.pmts-account-Number", cardNumber, email);
+                            await TypeActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input.apx-add-credit-card-account-holder-name-input", GenerateRandomUSFullName(), email);
+                            await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_month']", cardMonth);
+                            await SelectActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "select[name='ppw-expirationDate_year']", cardYear);
+                            await ClickActionInIframe(page, "iframe.apx-secure-iframe.pmts-portal-component", "input[name='ppw-widgetEvent:AddCreditCardEvent']");
+
+                            outputCard += $"{card},";
                         }
                     }
 
