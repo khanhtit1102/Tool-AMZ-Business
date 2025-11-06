@@ -719,8 +719,6 @@ namespace Auto_Tool_AMZ_with_GPM
                     {
                         await PerformActionWithWait(page, "text=Which account do you want to use?", async () =>
                         {
-                            await page.ClickAsync("a[data-name='switch_account_request']:last-of-type");
-
                             await PerformActionWithWait(page, "#Primary\\.REGISTRATION_START_MANAGE_REGISTRATION\\.redirect", async () => await page.ClickAsync("#Primary\\.REGISTRATION_START_MANAGE_REGISTRATION\\.redirect"));
 
                             await PerformActionWithWait(page, "button#redirectButton", async () => await page.ClickAsync("button#redirectButton"));
@@ -799,26 +797,6 @@ namespace Auto_Tool_AMZ_with_GPM
                             }
                             await Task.Delay(3000);
 
-                            if (isContinue)
-                            {
-                                var accountListsElement = await page.QuerySelectorAsync("a#nav-link-accountList");
-                                if (accountListsElement != null)
-                                {
-                                    var accountListsText = await page.EvaluateFunctionAsync<string>("el => el.textContent", accountListsElement);
-                                    if (!string.IsNullOrEmpty(accountListsText) && accountListsText.Contains("Account & Lists"))
-                                    {
-                                        await PerformActionWithWait(page, "button#nav-item-switch-account", async () => await page.ClickAsync("button#nav-item-switch-account"));
-                                        await page.ClickAsync("a[data-name='switch_account_request']:last-of-type");
-                                    }
-                                    else
-                                    {
-                                        addItemToListView(email, email, "DIE - SWITCH");
-                                        _totalAccDie++;
-                                        isContinue = false;
-                                        status += " - SWITCH FAIL (1)";
-                                    }
-                                }
-                            }
                         }, false, 5000);
                     }
                     catch (Exception ex)
@@ -848,6 +826,8 @@ namespace Auto_Tool_AMZ_with_GPM
 
                     if (isContinue)
                     {
+                        await NavigateWithRetry(page, "https://www.amazon.com/cpe/yourpayments/wallet", navigationOptions);
+                        await Task.Delay(2000);
                         var logoLinkElement = await page.QuerySelectorAsync("a.nav-logo-link");
                         if (logoLinkElement != null)
                         {
@@ -950,6 +930,7 @@ namespace Auto_Tool_AMZ_with_GPM
                                 _totalAccDie++;
                                 isContinue = false;
                                 status += " - Not Wallet (2)";
+                                break;
                             }
                         }
 

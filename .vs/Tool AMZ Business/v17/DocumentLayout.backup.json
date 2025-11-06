@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|c:\\users\\admin\\source\\repos\\tool-amz-business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|solutionrelative:tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -28,7 +28,7 @@
               "RelativeDocumentMoniker": "Tool AMZ Business\\Form1.cs",
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
               "RelativeToolTip": "Tool AMZ Business\\Form1.cs",
-              "ViewState": "AgIAAJIBAAAAAAAAAAAqwKwBAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAOQEAAAAAAAAAAAnwPIEAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T16:58:45.48Z",
               "EditorCaption": ""
@@ -42,8 +42,7 @@
               "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs [Design]",
               "RelativeToolTip": "Tool AMZ Business\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T07:59:45.563Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-11-04T07:59:45.563Z"
             }
           ]
         }
