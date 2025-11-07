@@ -179,12 +179,6 @@ namespace Auto_Tool_AMZ_with_GPM
 
         private async void timer1_Tick(object sender, EventArgs e)
         {
-            // Waiting internet connection
-            if (!IsConnectedToInternet())
-            {
-                return;
-            }
-
             if (this._totalWindows < nudChrome.Value)
             {
                 var tasks = new List<Task>();
@@ -195,6 +189,19 @@ namespace Auto_Tool_AMZ_with_GPM
                     {
                         throw new Exception();
                     }
+
+                    int waited = 0;
+                    while (!IsConnectedToInternet() && waited < 60)
+                    {
+                        await Task.Delay(1000);
+                        waited++;
+                    }
+                    if (!IsConnectedToInternet())
+                    {
+                        MessageBox.Show("Không có kết nối Internet sau 1 phút chờ. Vui lòng kiểm tra kết nối của bạn.", "Lỗi Kết Nối", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
 
                     this._listURL = IOFile.ReadAllLines(txtURL.Text);
 
