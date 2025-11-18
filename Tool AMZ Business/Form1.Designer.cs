@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.cbProxy = new System.Windows.Forms.CheckBox();
             this.txtProxy = new System.Windows.Forms.TextBox();
             this.txtGPMAPI = new System.Windows.Forms.TextBox();
@@ -72,6 +73,7 @@
             this.nudDelay = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.cbAddCard = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudChrome)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudCard)).BeginInit();
@@ -133,7 +135,7 @@
             this.cbRandomNameCard.AutoSize = true;
             this.cbRandomNameCard.Checked = true;
             this.cbRandomNameCard.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.cbRandomNameCard.Location = new System.Drawing.Point(15, 137);
+            this.cbRandomNameCard.Location = new System.Drawing.Point(15, 91);
             this.cbRandomNameCard.Name = "cbRandomNameCard";
             this.cbRandomNameCard.Size = new System.Drawing.Size(119, 17);
             this.cbRandomNameCard.TabIndex = 0;
@@ -538,6 +540,18 @@
             this.label12.TabIndex = 2;
             this.label12.Text = "Thời gian delay";
             // 
+            // cbAddCard
+            // 
+            this.cbAddCard.AutoSize = true;
+            this.cbAddCard.Checked = true;
+            this.cbAddCard.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbAddCard.Location = new System.Drawing.Point(15, 137);
+            this.cbAddCard.Name = "cbAddCard";
+            this.cbAddCard.Size = new System.Drawing.Size(90, 17);
+            this.cbAddCard.TabIndex = 0;
+            this.cbAddCard.Text = "Thêm thẻ mới";
+            this.cbAddCard.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,8 +574,10 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.txtProxy);
             this.Controls.Add(this.cbRandomNameCard);
+            this.Controls.Add(this.cbAddCard);
             this.Controls.Add(this.cbDelAllOldCard);
             this.Controls.Add(this.cbProxy);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(816, 511);
             this.MinimumSize = new System.Drawing.Size(816, 511);
             this.Name = "Form1";
@@ -623,6 +639,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label lblCardDie;
+        private System.Windows.Forms.CheckBox cbAddCard;
     }
 }
 

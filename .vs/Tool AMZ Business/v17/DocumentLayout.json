@@ -1,14 +1,20 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\",
+  "WorkspaceRootPath": "D:\\_Projects\\C#\\Tool-AMZ-Business\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|c:\\users\\admin\\source\\repos\\tool-amz-business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|D:\\_Projects\\C#\\Tool-AMZ-Business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|solutionrelative:tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|Tool AMZ Business||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|d:\\_projects\\c#\\tool-amz-business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|solutionrelative:tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|solutionrelative:tool amz business\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{725A36D7-270E-44A0-AEAE-36349B316AE3}|Tool AMZ Business\\Tool AMZ Business.csproj|d:\\_projects\\c#\\tool-amz-business\\tool amz business\\||{B270807C-D8C6-49EB-8EBE-8E8D566637A1}|5e9a8ac2-4f34-4521-858f-4c248ba31532"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,31 +24,48 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "Tool AMZ Business",
+              "DocumentMoniker": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Tool AMZ Business.csproj",
+              "RelativeDocumentMoniker": "Tool AMZ Business\\Tool AMZ Business.csproj",
+              "ToolTip": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Tool AMZ Business.csproj",
+              "RelativeToolTip": "Tool AMZ Business\\Tool AMZ Business.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-11-18T07:43:56.744Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Form1.cs",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
+              "DocumentMoniker": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
               "RelativeDocumentMoniker": "Tool AMZ Business\\Form1.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
+              "ToolTip": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
               "RelativeToolTip": "Tool AMZ Business\\Form1.cs",
-              "ViewState": "AgIAALEDAAAAAAAAAAAuwMYDAABtAAAAAAAAAA==",
+              "ViewState": "AQIAABYDAAAAAAAAAAAAwHQDAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-03T16:58:45.48Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Form1.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
+              "DocumentMoniker": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs",
               "RelativeDocumentMoniker": "Tool AMZ Business\\Form1.cs",
-              "ToolTip": "C:\\Users\\ADMIN\\source\\repos\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs [Design]",
+              "ToolTip": "D:\\_Projects\\C#\\Tool-AMZ-Business\\Tool AMZ Business\\Form1.cs [Design]",
               "RelativeToolTip": "Tool AMZ Business\\Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T07:59:45.563Z"
+              "WhenOpened": "2025-11-04T07:59:45.563Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

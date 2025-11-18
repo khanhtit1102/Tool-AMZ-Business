@@ -56,9 +56,6 @@ D:\_Projects\C#\Tool-AMZ-Business\Auto Tool AMZ with GPM\obj\Debug\Auto Tool AMZ
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\linux\selenium-manager
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\macos\selenium-manager
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\windows\selenium-manager.exe
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.exe.config
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.exe
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Auto Tool AMZ with GPM.pdb
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\INIFileParser.dll
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
@@ -102,12 +99,9 @@ D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\System.ValueTuple.
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\WebDriver.xml
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.AssemblyReference.cache
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto_Tool_AMZ_with_GPM.Form1.resources
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto_Tool_AMZ_with_GPM.Properties.Resources.resources
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.GenerateResource.cache
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.csproj.CoreCompileInputs.cache
 D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ.D213C2E9.Up2Date
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.exe
-D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Auto Tool AMZ with GPM.pdb
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\linux\selenium-manager
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\macos\selenium-manager
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\selenium-manager\windows\selenium-manager.exe
@@ -163,3 +157,9 @@ C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Tool A
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool_AMZ_Business.Properties.Resources.resources
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.exe
 C:\Users\ADMIN\source\repos\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.pdb
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Tool AMZ Business.exe.config
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Tool AMZ Business.exe
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\bin\Debug\Tool AMZ Business.pdb
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool_AMZ_Business.Properties.Resources.resources
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.exe
+D:\_Projects\C#\Tool-AMZ-Business\Tool AMZ Business\obj\Debug\Tool AMZ Business.pdb

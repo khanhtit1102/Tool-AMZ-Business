@@ -883,7 +883,7 @@ namespace Auto_Tool_AMZ_with_GPM
 
                 string outputAccount = $"{email}\t{password}\t{code2FA}\t{status}";
                 // Add new payment methods
-                if (isContinue)
+                if (isContinue && cbAddCard.Checked)
                 {
                     int countCard = 0;
                     string outputCard = "";
@@ -1054,9 +1054,6 @@ namespace Auto_Tool_AMZ_with_GPM
                     }
 
                 }
-
-
-
 
                 await Task.Delay(1500);
                 closeProfile(profileId);
